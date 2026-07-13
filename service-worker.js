@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'stop-thief-cache-v9';
+const CACHE_VERSION = 'stop-thief-cache-v10';
 
 const APP_SHELL = [
     './',
@@ -12,8 +12,8 @@ const APP_SHELL = [
     './js/ui.js',
     './js/app.js',
     './lib/sound.js',
-    './assets/icons/icon-192.png',
-    './assets/icons/icon-512.png',
+    './assets/icons/icon-full-192.png',
+    './assets/icons/icon-full-512.png',
     './assets/audio/arrest_fail.mp3',
     './assets/audio/arrest_success.mp3',
     './assets/audio/arrest_taunt.mp3',
