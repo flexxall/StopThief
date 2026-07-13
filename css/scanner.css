@@ -1,67 +1,75 @@
+html {
+    height: 100%;
+}
+
 body {
     background: #000000;
     color: #fff;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: stretch;
+    min-height: 100dvh;
+    height: 100dvh;
     margin: 0;
     overflow: hidden;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    box-sizing: border-box;
 }
 
 .scanner {
     background: #000000;
-    width: 100vw;
-    max-width: 420px;
-    height: auto;
-    max-height: 95vh;
+    width: min(100vw, 420px);
+    height: 100%;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    padding: clamp(10px, 2.5vh, 18px);
     box-sizing: border-box;
 }
 
 .header-panel {
     border: 2px solid #555;
-    padding: 8px;
-    margin-bottom: 12px;
+    padding: clamp(6px, 1.5vh, 10px);
+    margin-bottom: clamp(8px, 2vh, 14px);
     text-align: center;
+    flex-shrink: 0;
 }
 
 .top-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
+    font-size: clamp(10px, 2.8vw, 13px);
     font-weight: bold;
     color: #ccc;
     border-bottom: 2px solid #ccc;
     padding-bottom: 4px;
-    margin-bottom: 8px;
+    margin-bottom: clamp(4px, 1vh, 8px);
 }
 
 .brand-text {
-    font-size: 15px;
+    font-size: clamp(13px, 3.8vw, 17px);
     font-weight: bold;
     letter-spacing: 1px;
     color: #fff;
     text-transform: uppercase;
+    line-height: 1.2;
 }
 
 .display {
     background: #100000;
-    height: 60px;
+    height: clamp(56px, 11vh, 88px);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: clamp(10px, 2vh, 16px);
     border-radius: 4px;
+    flex-shrink: 0;
 }
 
 .led-text {
     color: #ff1111;
-    font-size: 38px;
+    font-size: clamp(30px, 9vw, 46px);
     font-family: 'Courier New', monospace;
     font-weight: bold;
     text-shadow: 0 0 12px #ff0000;
@@ -69,15 +77,18 @@ body {
 }
 
 .keypad {
+    flex: 1;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 6px 10px;
+    grid-template-rows: repeat(5, 1fr);
+    gap: clamp(5px, 1.4vh, 10px) clamp(6px, 2vw, 12px);
 }
 
 button {
     border: none;
     border-radius: 2px;
-    font-size: 32px;
+    font-size: clamp(22px, 6.5vw, 34px);
     font-weight: bold;
     font-family: Arial, sans-serif;
     cursor: pointer;
@@ -86,7 +97,8 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 52px;
+    height: 100%;
+    min-height: 0;
     box-sizing: border-box;
     line-height: 1;
     touch-action: manipulation;
@@ -98,7 +110,7 @@ button:active {
 }
 
 .sub-label {
-    font-size: 8px;
+    font-size: clamp(7px, 2vw, 10px);
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 2px;
@@ -111,8 +123,8 @@ button:active {
 .btn-purple { background: linear-gradient(to bottom, #9b59b6 50%, #8e44ad 50%); color: #fff; }
 .btn-9-0 { background: linear-gradient(to bottom, #2980b9 50%, #27ae60 50%); color: #fff; }
 
-.btn-off { background: #e5e8e8; color: #27ae60; font-size: 18px; }
-.btn-on { background: #e5e8e8; color: #c0392b; font-size: 18px; }
-.btn-t { background: #d32f2f; color: #fff; font-size: 28px; }
-.btn-a { background: #e67e22; color: #fff; font-size: 28px; }
-.btn-c { background: #ecc121; color: #fff; font-size: 28px; }
+.btn-off { background: #e5e8e8; color: #27ae60; font-size: clamp(14px, 4vw, 20px); }
+.btn-on { background: #e5e8e8; color: #c0392b; font-size: clamp(14px, 4vw, 20px); }
+.btn-t { background: #d32f2f; color: #fff; font-size: clamp(20px, 5.5vw, 30px); }
+.btn-a { background: #e67e22; color: #fff; font-size: clamp(20px, 5.5vw, 30px); }
+.btn-c { background: #ecc121; color: #fff; font-size: clamp(20px, 5.5vw, 30px); }
