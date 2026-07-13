@@ -3,7 +3,7 @@ Add-Type -AssemblyName System.Drawing
 function New-ScannerIcon {
     param(
         [int]$IconSize,
-        [double]$Scale = 1.55
+        [double]$Scale = 1.0
     )
 
     $bmp = New-Object System.Drawing.Bitmap($IconSize, $IconSize, [System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
@@ -23,9 +23,12 @@ function New-ScannerIcon {
     $red = [System.Drawing.Color]::FromArgb(255, 192, 57, 43)
 
     $g.Clear($black)
-    $g.TranslateTransform($IconSize / 2.0, $IconSize / 2.0)
-    $g.ScaleTransform($Scale, $Scale)
-    $g.TranslateTransform(-$IconSize / 2.0, -$IconSize / 2.0)
+
+    if ($Scale -ne 1.0) {
+        $g.TranslateTransform($IconSize / 2.0, $IconSize / 2.0)
+        $g.ScaleTransform($Scale, $Scale)
+        $g.TranslateTransform(-$IconSize / 2.0, -$IconSize / 2.0)
+    }
 
     $x = 0
     $y = 0
@@ -121,10 +124,17 @@ function New-ScannerIcon {
 $iconDir = Join-Path $PSScriptRoot "..\assets\icons"
 New-Item -ItemType Directory -Force -Path $iconDir | Out-Null
 
-foreach ($iconSize in @(192, 512)) {
-    $icon = New-ScannerIcon -IconSize $iconSize
-    $path = Join-Path $iconDir "icon-$iconSize.png"
-    $icon.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
-    $icon.Dispose()
-    Write-Host "Wrote $path"
+$variants = @(
+    @{ Name = "icon-full"; Scale = 1.0 },
+    @{ Name = "icon"; Scale = 1.55 }
+)
+
+foreach ($variant in $variants) {
+    foreach ($iconSize in @(192, 512)) {
+        $icon = New-ScannerIcon -IconSize $iconSize -Scale $variant.Scale
+        $path = Join-Path $iconDir "$($variant.Name)-$iconSize.png"
+        $icon.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
+        $icon.Dispose()
+        Write-Host "Wrote $path"
+    }
 }
