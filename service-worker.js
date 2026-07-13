@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'stop-thief-cache-v10';
+const CACHE_VERSION = 'stop-thief-cache-v11';
 
 const APP_SHELL = [
     './',
