@@ -1,0 +1,10 @@
+{
+    "name": "Stop Thief Crime Scanner",
+    "short_name": "Stop Thief",
+    "description": "1979 Stop Thief electronic crime scanner replica",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#000000",
+    "theme_color": "#000000"
+}

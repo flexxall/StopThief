@@ -1,0 +1,118 @@
+body {
+    background: #000000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.scanner {
+    background: #000000;
+    width: 100vw;
+    max-width: 420px;
+    height: auto;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.header-panel {
+    border: 2px solid #555;
+    padding: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.top-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ccc;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.brand-text {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.display {
+    background: #100000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.led-text {
+    color: #ff1111;
+    font-size: 38px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 0 0 12px #ff0000;
+    letter-spacing: 4px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 10px;
+}
+
+button {
+    border: none;
+    border-radius: 2px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    box-sizing: border-box;
+    line-height: 1;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    opacity: 0.85;
+}
+
+.sub-label {
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+}
+
+.btn-1-2 { background: linear-gradient(to bottom, #ecc121 50%, #d49f05 50%); color: #fff; }
+.btn-3-4 { background: linear-gradient(to bottom, #d35400 50%, #c0392b 50%); color: #fff; }
+.btn-5-6 { background: linear-gradient(to bottom, #c0392b 50%, #d81b60 50%); color: #fff; }
+.btn-purple { background: linear-gradient(to bottom, #9b59b6 50%, #8e44ad 50%); color: #fff; }
+.btn-9-0 { background: linear-gradient(to bottom, #2980b9 50%, #27ae60 50%); color: #fff; }
+
+.btn-off { background: #e5e8e8; color: #27ae60; font-size: 18px; }
+.btn-on { background: #e5e8e8; color: #c0392b; font-size: 18px; }
+.btn-t { background: #d32f2f; color: #fff; font-size: 28px; }
+.btn-a { background: #e67e22; color: #fff; font-size: 28px; }
+.btn-c { background: #ecc121; color: #fff; font-size: 28px; }
